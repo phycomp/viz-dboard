@@ -54,7 +54,7 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 - **Layout**: Use `st.columns([3, 7])` for left-right layout (left panel 30%, right panel 70%)
 - **Container width**: `use_container_width=True` → use `width='stretch'`. `use_container_width=False` → use `width='content'`.
 - **Context manager**: Use `with` identifier for layout blocks (e.g., `with col1:`), not `expand`.
-- **Charting library**: 2D charts → use `matplotlib` (not plotly). 3D charts → use `pyvista` + `panel`.
+- **Charting library**: 2D charts → **`matplotlib` only** — no `seaborn`, no `PIL`/Pillow, no `plotly`. 3D charts → **`pyvista` + `panel`**, unconditionally (including Bloch spheres). `PIL`-based soft rendering exists only as historical reference in `0維軟渲染.py`; do not use it for new 2D charts.
 - **Demo tool completion**: When a demo tool is developed, provide its **location** (file path) and **startup method** (command to run). The tool name and path should reflect the **distill output name**, not a fixed name. Example: "Location: ~/薦家/布球/<distill-name>/app.py | Startup: streamlit run app.py".
 
 ## Demo Tools
@@ -96,5 +96,6 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 - Use dashed lines for conditional hooks.
 - Update the SVG whenever the skill hierarchy changes.
 - **Hooked by:** `inspect-skill` (optional, after refactoring — visualize the resulting hierarchy).
+- Logic check: 2026-11-22 — charting rule tightened to 2D=`matplotlib` only (no seaborn/PIL) and 3D=`pyvista`+`panel` unconditionally; demo table corrected.
 EOF
 echo "written"
