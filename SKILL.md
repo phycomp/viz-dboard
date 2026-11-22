@@ -45,9 +45,11 @@ python3 -c "import xml.etree.ElementTree as ET; ET.parse('skill-map.svg'); print
 
 Before writing or changing **any** demo `app.py`, open the distilled example docs first. This is a hard prerequisite, not a suggestion.
 
+**Canonical path — 繁體 only:** the sole valid root is `~/薦家/布球/` (**薦**, not 荐). `~/荐家/` does not exist and must never be created. Use the literal `~/薦家/...` path directly; verify with `test -d "$HOME/薦家/布球"` before any write. **Never** use `cd "$HOME/荐家/..." 2>/dev/null || cd "$HOME/薦家/..."` — that fallback silently picks a non-existent simplified tree and creates a second, empty repo. If a path in any doc/tool output contains `荐家`, correct it to `薦家` before acting.
+
 **Required read order:**
 
-1. `~/荐家/布球/INDEX.md` — the map of distilled assets and their intended scope.
+1. `~/薦家/布球/INDEX.md` — the map of distilled assets and their intended scope.
 2. The matching `*_distilled.md` for the demo's domain (e.g. `布球_distilled.md`, `渲染邏輯_distilled.md`, `qskt_distilled.md`). These are the outputs of `file-distill`; they define the vocabulary, formulas, worked examples, and limits that the demo must reflect.
 3. Only then the raw `.py` experiments and any sibling `app.py` — for implementation details *after* the distilled source is understood.
 
@@ -94,7 +96,7 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 | `<distill-name>` | `~/薦家/布球/<distill-name>/app.py` | `streamlit run app.py` | Distilled demo tool (location and name derived from the distill output) |
 | qbit-gate-viz | `~/薦家/布球/qbit-gate-viz/app.py` | `streamlit run app.py` | Single integrated app: Qiskit/Aer 1/2/3 qubit gates + 2D Bloch projection (matplotlib) + 3D Bloch evolution (PyVista → Panel VTK pane → `st.iframe`) |
 
-> **Retired standalone demo:** `~/荐家/布球/bloch-evolution-viz/app.py` (`panel serve app.py --show`) has been folded into `qbit-gate-viz/app.py`. Do not list it as an active demo or copy from it; the 3D evolution now lives inside the one app.
+> **Retired standalone demo:** `~/薦家/布球/bloch-evolution-viz/app.py` (`panel serve app.py --show`) has been folded into `qbit-gate-viz/app.py`. Do not list it as an active demo or copy from it; the 3D evolution now lives inside the one app.
 
 > **Note:** Replace `<distill-name>` with the actual distill output name (e.g., `quant-dboard`, `qbit-viz-dashboard`). The tool name and path must reflect the distill output name, not a fixed name.
 - **Conversion example**: `st.expand` / `st.expander` → `with` context:
