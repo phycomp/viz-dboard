@@ -48,7 +48,7 @@
   <text x="660" y="205" class="label">publish-to-github</text>
 
   <rect x="760" y="180" width="200" height="50" class="node leaf" />
-  <text x="860" y="205" class="label">inspect-skill</text>
+  <text x="860" y="205" class="label">chain-skill</text>
 
   <rect x="960" y="180" width="200" height="50" class="node leaf" />
   <text x="1060" y="205" class="label">quant-algo-auto</text>
@@ -75,5 +75,3 @@
   <line x1="720" y1="692" x2="780" y2="692" class="edge optional" />
   <text x="800" y="692" class="label" text-anchor="start">條件性 hook</text>
 </svg>
-EOF
-echo "written"; python3 -c "import xml.etree.ElementTree as ET; ET.parse('/home/sam/.agents/skills/viz-dboard/skill-map.svg'); print('SVG valid')"

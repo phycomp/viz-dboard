@@ -96,7 +96,5 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 - Keep node labels short (skill names).
 - Use dashed lines for conditional hooks.
 - Update the SVG whenever the skill hierarchy changes.
-- **Hooked by:** `inspect-skill` (optional, after refactoring — visualize the resulting hierarchy).
-- Logic check: 2026-11-22 — charting rule tightened to 2D=`matplotlib` only (no seaborn/PIL) and 3D=`pyvista`+`panel` unconditionally; demo table corrected; added demo-code compliance hook (source: `rev-skill` step 8).
-EOF
-echo "written"
+- **Hooked by:** `chain-skill` (optional, after refactoring — visualize the resulting hierarchy).
+- Logic check: 2026-11-22 — charting rule tightened to 2D=`matplotlib` only (no seaborn/PIL) and 3D=`pyvista`+`panel` unconditionally; demo table corrected; added demo-code compliance hook (source: `rev-skill` step 8); `inspect-skill` → `chain-skill` reference updated; SVG junk removed (validated).
