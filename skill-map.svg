@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Self-developed skills mindmap">
+  <title>Self-developed skills mindmap</title>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#475569" />
+    </marker>
+    <style>
+      .node { fill: #f8fafc; stroke: #334155; stroke-width: 2; rx: 12; ry: 12; }
+      .root { fill: #dbeafe; stroke: #1d4ed8; }
+      .parent { fill: #dcfce7; stroke: #15803d; }
+      .child { fill: #fef9c3; stroke: #a16207; }
+      .leaf { fill: #fce7f3; stroke: #be185d; }
+      .label { font-family: "Noto Sans CJK TC", "Noto Sans", sans-serif; font-size: 15px; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; }
+      .title { font-family: "Noto Sans CJK TC", "Noto Sans", sans-serif; font-size: 24px; font-weight: 700; fill: #0f172a; text-anchor: middle; }
+      .edge { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .optional { stroke-dasharray: 6 4; }
+    </style>
+  </defs>
+
+  <text x="600" y="40" class="title">自行開發技能 Mindmap</text>
+
+  <!-- Edges -->
+  <line x1="600" y1="110" x2="260" y2="180" class="edge" />
+  <line x1="260" y1="230" x2="260" y2="300" class="edge" />
+
+  <line x1="600" y1="110" x2="460" y2="180" class="edge" />
+  <line x1="460" y1="230" x2="260" y2="300" class="edge optional" />
+
+  <line x1="600" y1="110" x2="660" y2="180" class="edge" />
+  <line x1="660" y1="230" x2="660" y2="300" class="edge" />
+
+  <line x1="600" y1="110" x2="860" y2="180" class="edge" />
+  <line x1="600" y1="110" x2="1060" y2="180" class="edge" />
+  <line x1="600" y1="110" x2="1060" y2="300" class="edge" />
+
+  <!-- Root -->
+  <rect x="500" y="60" width="200" height="50" class="node root" />
+  <text x="600" y="85" class="label">自行開發技能</text>
+
+  <!-- Level 1 parents -->
+  <rect x="160" y="180" width="200" height="50" class="node parent" />
+  <text x="260" y="205" class="label">paperclip-launch</text>
+
+  <rect x="360" y="180" width="200" height="50" class="node parent" />
+  <text x="460" y="205" class="label">assign-maus</text>
+
+  <rect x="560" y="180" width="200" height="50" class="node parent" />
+  <text x="660" y="205" class="label">publish-to-github</text>
+
+  <rect x="760" y="180" width="200" height="50" class="node leaf" />
+  <text x="860" y="205" class="label">inspect-skill</text>
+
+  <rect x="960" y="180" width="200" height="50" class="node leaf" />
+  <text x="1060" y="205" class="label">quant-algo-auto</text>
+
+  <!-- Level 2 children -->
+  <rect x="160" y="300" width="200" height="50" class="node child" />
+  <text x="260" y="325" class="label">repo-pull</text>
+
+  <rect x="560" y="300" width="200" height="50" class="node child" />
+  <text x="660" y="325" class="label">audit-skill</text>
+
+  <rect x="960" y="300" width="200" height="50" class="node leaf" />
+  <text x="1060" y="325" class="label">rev-skill</text>
+
+  <!-- Legend -->
+  <rect x="60" y="680" width="24" height="24" class="node root" />
+  <text x="100" y="692" class="label" text-anchor="start">根節點</text>
+  <rect x="220" y="680" width="24" height="24" class="node parent" />
+  <text x="260" y="692" class="label" text-anchor="start">父技能</text>
+  <rect x="380" y="680" width="24" height="24" class="node child" />
+  <text x="420" y="692" class="label" text-anchor="start">子技能</text>
+  <rect x="540" y="680" width="24" height="24" class="node leaf" />
+  <text x="580" y="692" class="label" text-anchor="start">葉節點 / meta</text>
+  <line x1="720" y1="692" x2="780" y2="692" class="edge optional" />
+  <text x="800" y="692" class="label" text-anchor="start">條件性 hook</text>
+</svg>
+EOF
+echo "written"; python3 -c "import xml.etree.ElementTree as ET; ET.parse('/home/sam/.agents/skills/viz-dboard/skill-map.svg'); print('SVG valid')"
