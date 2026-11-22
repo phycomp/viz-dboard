@@ -57,7 +57,7 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 - **Charting library**: 2D charts → **`matplotlib` only** — no `seaborn`, no `PIL`/Pillow, no `plotly`. 3D charts → **`pyvista` + `panel`**, unconditionally (including Bloch spheres). `PIL`-based soft rendering exists only as historical reference in `0維軟渲染.py`; do not use it for new 2D charts.
 - **Demo tool completion**: When a demo tool is developed, provide its **location** (file path) and **startup method** (command to run). The tool name and path should reflect the **distill output name**, not a fixed name. Example: "Location: ~/薦家/布球/<distill-name>/app.py | Startup: streamlit run app.py".
 - **Demo code compliance**: a listed demo is compliant only when its `app.py` actually uses the mandated backend (2D → matplotlib, 3D → PyVista + Panel). Verify by **reading the code**, not the README. A `legacy` / `exception` label in docs does not make a violating demo compliant — convert the code or remove the entry. Full rule: `rev-skill` → Logic Consistency Check, step 8.
-- **Post-check demo hook**: after a logic check, hook the domain skill's demos — for `qbit-viz`, verify `qbit-gate-viz/app.py` (2D matplotlib) and `bloch-evolution-viz/app.py` (PyVista + Panel), **plus the skill's own example snippets**. Full rule: `rev-skill` → Logic Consistency Check, step 9.
+- **Post-check demo hook**: this skill is the hook target of `rev-skill` → Logic Consistency Check, step 9. After a logic check, verify the domain skill's demos — for `qbit-viz`, `qbit-gate-viz/app.py` (2D matplotlib) and `bloch-evolution-viz/app.py` (PyVista + Panel), **plus the skill's own example snippets**. Do not duplicate the logic check itself here.
 
 ## Demo Tools
 
@@ -98,4 +98,4 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 - Use dashed lines for conditional hooks.
 - Update the SVG whenever the skill hierarchy changes.
 - **Hooked by:** `chain-skill` (optional, after refactoring — visualize the resulting hierarchy).
-- Logic check: 2026-11-22 — charting rule tightened to 2D=`matplotlib` only (no seaborn/PIL) and 3D=`pyvista`+`panel` unconditionally; demo table corrected; added demo-code compliance hook (source: `rev-skill` step 8); `inspect-skill` → `chain-skill` reference updated; SVG junk removed (validated); post-check demo hook added (source: `rev-skill` step 9).
+- Logic check: 2026-11-22 — charting rule tightened to 2D=`matplotlib` only (no seaborn/PIL) and 3D=`pyvista`+`panel` unconditionally; demo table corrected; added demo-code compliance hook (source: `rev-skill` step 8); `inspect-skill` → `chain-skill` reference updated; SVG junk removed (validated); post-check demo hook added (source: `rev-skill` step 9); now explicitly the hook target of that step.
