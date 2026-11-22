@@ -56,13 +56,14 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 - **Context manager**: Use `with` identifier for layout blocks (e.g., `with col1:`), not `expand`.
 - **Charting library**: 2D charts → **`matplotlib` only** — no `seaborn`, no `PIL`/Pillow, no `plotly`. 3D charts → **`pyvista` + `panel`**, unconditionally (including Bloch spheres). `PIL`-based soft rendering exists only as historical reference in `0維軟渲染.py`; do not use it for new 2D charts.
 - **Demo tool completion**: When a demo tool is developed, provide its **location** (file path) and **startup method** (command to run). The tool name and path should reflect the **distill output name**, not a fixed name. Example: "Location: ~/薦家/布球/<distill-name>/app.py | Startup: streamlit run app.py".
+- **Demo code compliance**: a listed demo is compliant only when its `app.py` actually uses the mandated backend (2D → matplotlib, 3D → PyVista + Panel). Verify by **reading the code**, not the README. A `legacy` / `exception` label in docs does not make a violating demo compliant — convert the code or remove the entry. Full rule: `rev-skill` → Logic Consistency Check, step 8.
 
 ## Demo Tools
 
 | Tool | Location | Startup | Description |
 |------|----------|---------|-------------|
 | `<distill-name>` | `~/薦家/布球/<distill-name>/app.py` | `streamlit run app.py` | Distilled demo tool (location and name derived from the distill output) |
-| qbit-gate-viz | `~/薦家/布球/qbit-gate-viz/app.py` | `streamlit run app.py` | Qiskit/Aer 2/3 qubit logic gate demo; its matplotlib-3D Bloch panel is legacy |
+| qbit-gate-viz | `~/薦家/布球/qbit-gate-viz/app.py` | `streamlit run app.py` | Qiskit/Aer 2/3 qubit logic gate demo with 2D Bloch projection |
 | bloch-evolution-viz | `~/薦家/布球/bloch-evolution-viz/app.py` | `panel serve app.py --show` | 3D Bloch sphere + qubit evolution (PyVista + Panel) — the compliant 3D demo |
 
 > **Note:** Replace `<distill-name>` with the actual distill output name (e.g., `quant-dboard`, `qbit-viz-dashboard`). The tool name and path must reflect the distill output name, not a fixed name.
@@ -96,6 +97,6 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 - Use dashed lines for conditional hooks.
 - Update the SVG whenever the skill hierarchy changes.
 - **Hooked by:** `inspect-skill` (optional, after refactoring — visualize the resulting hierarchy).
-- Logic check: 2026-11-22 — charting rule tightened to 2D=`matplotlib` only (no seaborn/PIL) and 3D=`pyvista`+`panel` unconditionally; demo table corrected.
+- Logic check: 2026-11-22 — charting rule tightened to 2D=`matplotlib` only (no seaborn/PIL) and 3D=`pyvista`+`panel` unconditionally; demo table corrected; added demo-code compliance hook (source: `rev-skill` step 8).
 EOF
 echo "written"
