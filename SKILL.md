@@ -62,7 +62,8 @@ When visualizing Streamlit-based skill hierarchies or dashboards, apply these ru
 | Tool | Location | Startup | Description |
 |------|----------|---------|-------------|
 | `<distill-name>` | `~/薦家/布球/<distill-name>/app.py` | `streamlit run app.py` | Distilled demo tool (location and name derived from the distill output) |
-| qbit-gate-viz | `~/薦家/布球/qbit-gate-viz/app.py` | `streamlit run app.py` | Qiskit/Aer 2/3 qubit logic gate visualization (Bloch sphere, state vector, Q-sphere) |
+| qbit-gate-viz | `~/薦家/布球/qbit-gate-viz/app.py` | `streamlit run app.py` | Qiskit/Aer 2/3 qubit logic gate demo; its matplotlib-3D Bloch panel is legacy |
+| bloch-evolution-viz | `~/薦家/布球/bloch-evolution-viz/app.py` | `panel serve app.py --show` | 3D Bloch sphere + qubit evolution (PyVista + Panel) — the compliant 3D demo |
 
 > **Note:** Replace `<distill-name>` with the actual distill output name (e.g., `quant-dboard`, `qbit-viz-dashboard`). The tool name and path must reflect the distill output name, not a fixed name.
 - **Conversion example**: `st.expand` / `st.expander` → `with` context:
